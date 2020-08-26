@@ -1,0 +1,22 @@
+{
+  "cafeteria":[
+    {
+      "nombreProducto":"Café con leche",
+      "precioProducto":"100",
+      "categoria":"bebida-caliente",
+      "id":1
+    },
+    {
+      "nombreProducto":"Licuado de durazno con leche",
+      "precioProducto":"120",
+      "categoria":"bebida-fria",
+      "id":2
+    },
+    {
+      "nombreProducto":"Tostado de ternera y queso",
+      "precioProducto":"130",
+      "categoria":"sandwich",
+      "id":3
+    }
+  ]
+}
