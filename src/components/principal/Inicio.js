@@ -2,8 +2,8 @@ import React from 'react';
 
 const Inicio = () => {
     return (
-        <div>
-            <h2>pagina principal</h2>
+        <div className="fondo">
+            <h1 className="hero-text titulo">Café Paris</h1>
         </div>
     );
 };

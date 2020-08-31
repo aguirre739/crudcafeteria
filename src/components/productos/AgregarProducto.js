@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
+import Swal from 'sweetalert2';
 
 const AgregarProducto = () => {
   const [nombreProducto, setNombreProducto] = useState("");
@@ -46,13 +47,33 @@ const AgregarProducto = () => {
       }
       const resultado = await fetch("http://localhost:4000/cafeteria",cabecera) 
       console.log(resultado)
+
+      if(resultado.status === 201){
+        //aqui se agrego el producto exitosamente
+        Swal.fire(
+          'Producto Creado',
+          'El producto se agregó correctamente',
+          'success'
+        )
+      } else{
+        Swal.fire(
+          'Oopss...',
+          'Ocurrió un error, intentelo nuevamente',
+          'error'
+        )
+      }
     } catch(excepcion){
       console.log(excepcion);
+      Swal.fire(
+        'Oopss...',
+        'Ocurrió un error, intentelo nuevamente',
+        'error'
+      )
     }
   };
 
   return (
-    <Container className="d-flex flex-column justify-content-center align-items-center">
+    <Container className="d-flex flex-column justify-content-center align-items-center marginTop">
       <h1 className="display-4 text-center my-4">Agregar Nuevo Producto</h1>
       <Form
         className="w-75 shadow p-3 mb-5 bg-white rounded"

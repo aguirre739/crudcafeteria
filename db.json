@@ -32,6 +32,12 @@
       "precioProducto": "130",
       "categoria": "sandwich",
       "id": 7
+    },
+    {
+      "nombreProducto": "muffin de chocolate",
+      "precioProducto": "50",
+      "categoria": "dulce",
+      "id": 8
     }
   ]
 }

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+.fondo {
+  background: url("./img/3759017.jpg");
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  position: relative;
+}
+
+.position {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100vw;
+}
+
+.hero-text {
+  text-align: right;
+  position: absolute;
+  top: 30%;
+  left: 60%;
+  transform: translate(-30%, -50%);
+  color: white;
+}
+
+.marginTop {
+  margin-top: 56px;
+}
+
+.titulo{
+    font-family: 'Parisienne', cursive;
+    font-size: 100px;
+}
