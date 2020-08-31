@@ -11,10 +11,10 @@
 }
 
 .position {
-  position: fixed;
+  /* position: fixed; */
   bottom: 0px;
   left: 0;
-  width: 100vw;
+  width: 100%;
 }
 
 .hero-text {
@@ -26,9 +26,9 @@
   color: white;
 }
 
-.marginTop {
+/* .marginTop {
   margin-top: 56px;
-}
+} */
 
 .titulo{
     font-family: 'Parisienne', cursive;

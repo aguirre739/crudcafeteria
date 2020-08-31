@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className="fixed-top">
+        <div>
             <Navbar bg="primary" variant="dark" expand="lg">
                 <Navbar.Brand href="#home">Cafe Paris</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

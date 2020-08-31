@@ -4,8 +4,9 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Swal from 'sweetalert2';
+import {withRouter} from 'react-router-dom';
 
-const AgregarProducto = () => {
+const AgregarProducto = (props) => {
   const [nombreProducto, setNombreProducto] = useState("");
   const [precioProducto, setPrecioProducto] = useState("");
   const [categoria, setCategoria] = useState("");
@@ -50,11 +51,15 @@ const AgregarProducto = () => {
 
       if(resultado.status === 201){
         //aqui se agrego el producto exitosamente
+        props.setRecargarProductos(true);
         Swal.fire(
           'Producto Creado',
           'El producto se agregó correctamente',
           'success'
         )
+
+        //redireccionar a la pagina de productos
+        props.history.push("/productos");
       } else{
         Swal.fire(
           'Oopss...',
@@ -152,4 +157,4 @@ const AgregarProducto = () => {
   );
 };
 
-export default AgregarProducto;
+export default withRouter(AgregarProducto);
