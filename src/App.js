@@ -8,6 +8,7 @@ import EditarProducto from "./components/productos/EditarProducto";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import PaginaError from "./components/error404/PaginaError";
 
 function App() {
   const [listaProductos, setListaProductos] = useState([]);
@@ -42,20 +43,36 @@ function App() {
           <Inicio></Inicio>
         </Route>
         <Route exact path="/productos">
-          <ListarProductos listaProductos={listaProductos} setRecargarProductos={setRecargarProductos}></ListarProductos>
+          <ListarProductos
+            listaProductos={listaProductos}
+            setRecargarProductos={setRecargarProductos}
+          ></ListarProductos>
         </Route>
         <Route exact path="/productos/nuevo">
-          <AgregarProducto setRecargarProductos={setRecargarProductos}></AgregarProducto>
+          <AgregarProducto
+            setRecargarProductos={setRecargarProductos}
+          ></AgregarProducto>
         </Route>
-        <Route exact path="/productos/editar/:idProducto" render={()=>{
-          //obtener el id de la ruta
-
-          //filtrar el arreglo de productod y obtener
-
-          //renderzar el componente editarproducto
-          return  <EditarProducto></EditarProducto>
-        }}>
-         
+        <Route
+          exact
+          path="/productos/editar/:id"
+          render={(props) => {
+            //obtener el id de la ruta
+            const idProducto = parseInt(props.match.params.id);
+            console.log(idProducto);
+            //filtrar el arreglo de productos y obtener el q coincide con el id
+            const productoSeleccionado = listaProductos.find(
+              (producto) => producto.id === idProducto
+            );
+            console.log(productoSeleccionado);
+            //renderizar el componente EditarProducto
+            return (
+              <EditarProducto producto={productoSeleccionado} setRecargarProductos={setRecargarProductos}></EditarProducto>
+            );
+          }}
+        ></Route>
+        <Route exact path='*'>
+          <PaginaError></PaginaError>
         </Route>
       </Switch>
       <Footer></Footer>

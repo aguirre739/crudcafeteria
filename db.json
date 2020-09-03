@@ -37,9 +37,9 @@
       "id": 9
     },
     {
-      "nombreProducto": "milanesa al plato con guarnicion",
-      "precioProducto": "180",
-      "categoria": "salado",
+      "nombreProducto": "sandwich de milanesa",
+      "precioProducto": "200",
+      "categoria": "sandwich",
       "id": 10
     },
     {
