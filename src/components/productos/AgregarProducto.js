@@ -46,7 +46,7 @@ const AgregarProducto = (props) => {
         },
         body: JSON.stringify(datos)
       }
-      const resultado = await fetch("http://localhost:4000/api/cafeteria",cabecera) 
+      const resultado = await fetch("https://crudcafeteria.herokuapp.com/api/cafeteria",cabecera) 
       console.log(resultado)
 
       if(resultado.status === 201){

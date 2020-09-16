@@ -24,7 +24,7 @@ const ItemProducto = (props) => {
       if (result.value) {
         //aqui tengo que eliminar el producto
         try{
-          const consulta = await fetch(`http://localhost:4000/api/cafeteria/${idProducto}`,{
+          const consulta = await fetch(`https://crudcafeteria.herokuapp.com/api/cafeteria/${idProducto}`,{
             method: "DELETE",
             headers:{
               "Content-Type": "application/json"

@@ -24,7 +24,7 @@ function App() {
   const consultarAPI = async () => {
     try {
       //operacion GET
-      const consulta = await fetch("http://localhost:4000/api/cafeteria");
+      const consulta = await fetch("https://crudcafeteria.herokuapp.com/api/cafeteria");
       console.log(consulta);
       const resultado = await consulta.json();
       console.log(resultado);
