@@ -24,7 +24,7 @@ const ItemProducto = (props) => {
       if (result.value) {
         //aqui tengo que eliminar el producto
         try{
-          const consulta = await fetch(`http://localhost:4000/cafeteria/${idProducto}`,{
+          const consulta = await fetch(`http://localhost:4000/api/cafeteria/${idProducto}`,{
             method: "DELETE",
             headers:{
               "Content-Type": "application/json"
@@ -58,9 +58,9 @@ const ItemProducto = (props) => {
         </span>
       </p>
       <div>
-        <Link className="mr-2 btn btn-info" to={`/productos/editar/${props.producto.id}`}><FontAwesomeIcon icon={faEdit}></FontAwesomeIcon></Link>
+        <Link className="mr-2 btn btn-info" to={`/productos/editar/${props.producto._id}`}><FontAwesomeIcon icon={faEdit}></FontAwesomeIcon></Link>
         {/* <Button variant="info" className="mr-2">Editar</Button> */}
-        <Button variant="danger" onClick={()=> eliminarProducto(props.producto.id)}><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></Button>
+        <Button variant="danger" onClick={()=> eliminarProducto(props.producto._id)}><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></Button>
       </div>
     </ListGroup.Item>
   );

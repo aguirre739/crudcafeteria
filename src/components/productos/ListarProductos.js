@@ -7,7 +7,7 @@ const ListarProductos = (props) => {
     <div className="container marginTop">
       <h1 className="display-4 text-center my-4">Lista de productos</h1>
       <ListGroup className="my-2">
-        {props.listaProductos.map((item) => <ItemProducto key={item.id} producto={item} setRecargarProductos={props.setRecargarProductos}></ItemProducto>)}
+        {props.listaProductos.map((item) => <ItemProducto key={item._id} producto={item} setRecargarProductos={props.setRecargarProductos}></ItemProducto>)}
       </ListGroup>
     </div>
   );

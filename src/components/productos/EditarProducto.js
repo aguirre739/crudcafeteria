@@ -42,7 +42,7 @@ const EditarProducto = (props) => {
         }
         //enviar el objeto
         try {
-            const consulta = await fetch(`http://localhost:4000/cafeteria/${props.producto.id}`,
+            const consulta = await fetch(`http://localhost:4000/api/cafeteria/${props.producto._id}`,
             {
                 method: "PUT", //se usa para editar
                 headers:{

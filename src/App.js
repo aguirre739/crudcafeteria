@@ -24,7 +24,7 @@ function App() {
   const consultarAPI = async () => {
     try {
       //operacion GET
-      const consulta = await fetch("http://localhost:4000/cafeteria");
+      const consulta = await fetch("http://localhost:4000/api/cafeteria");
       console.log(consulta);
       const resultado = await consulta.json();
       console.log(resultado);
@@ -58,11 +58,11 @@ function App() {
           path="/productos/editar/:id"
           render={(props) => {
             //obtener el id de la ruta
-            const idProducto = parseInt(props.match.params.id);
+            const idProducto = props.match.params.id;
             console.log(idProducto);
             //filtrar el arreglo de productos y obtener el q coincide con el id
             const productoSeleccionado = listaProductos.find(
-              (producto) => producto.id === idProducto
+              (producto) => producto._id === idProducto
             );
             console.log(productoSeleccionado);
             //renderizar el componente EditarProducto
