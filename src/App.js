@@ -9,10 +9,16 @@ import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PaginaError from "./components/error404/PaginaError";
+import Paginacion from './components/productos/Paginacion';
 
 function App() {
   const [listaProductos, setListaProductos] = useState([]);
   const [recargarProductos, setRecargarProductos] = useState(true);
+
+  //state para paginar
+  const [totalPaginas, setTotalPaginas] = useState(0);
+  const [paginaActual, setPaginaActual] = useState(0);
+  const [cantidadRegistros, setCantidadRegistros] = useState(3); //cantidad de registros que se mostraran en la lista de productos o cuantos productos habra en cada pagina
 
   useEffect(() => {
     if (recargarProductos) {
@@ -21,15 +27,17 @@ function App() {
     }
   }, [recargarProductos]);
 
-  const consultarAPI = async () => {
+  const consultarAPI = async (paginaAct = paginaActual) => {
     try {
       //operacion GET
-      const consulta = await fetch("https://crudcafeteria.herokuapp.com/api/cafeteria");
+      const consulta = await fetch(`https://crudcafeteria.herokuapp.com/api/cafeteria/?cantidad=${cantidadRegistros}&paginaActual=${paginaAct}`);
       console.log(consulta);
       const resultado = await consulta.json();
       console.log(resultado);
       //guardar datos en el stage
-      setListaProductos(resultado);
+      setListaProductos(resultado.mensaje);
+      setTotalPaginas(resultado.totalPaginas);
+      setPaginaActual(resultado.paginaActual);
     } catch (error) {
       console.log(error);
     }
@@ -42,11 +50,16 @@ function App() {
         <Route exact path="/">
           <Inicio></Inicio>
         </Route>
-        <Route exact path="/productos">
-          <ListarProductos
+        <Route exact path="/productos" render={()=>(
+          <div>
+            <ListarProductos
             listaProductos={listaProductos}
             setRecargarProductos={setRecargarProductos}
           ></ListarProductos>
+          <Paginacion totalPaginas={totalPaginas} paginaActual={paginaActual} consultarAPI={consultarAPI}></Paginacion>
+          </div>
+        )}>
+          
         </Route>
         <Route exact path="/productos/nuevo">
           <AgregarProducto

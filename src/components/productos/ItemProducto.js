@@ -34,7 +34,7 @@ const ItemProducto = (props) => {
           console.log(consulta);
           if(consulta.status === 200){
             //aqui si se borró el producto
-            props.setRecargarProductos(true);
+            // props.setRecargarProductos(true);
             Swal.fire(
               'El producto fue eliminado.',
               'Su producto fue eliminado correctamente.',
@@ -58,7 +58,8 @@ const ItemProducto = (props) => {
         </span>
       </p>
       <div>
-        <Link className="mr-2 btn btn-info" to={`/productos/editar/${props.producto._id}`}><FontAwesomeIcon icon={faEdit}></FontAwesomeIcon></Link>
+        <Link className="mr-2 btn btn-info" 
+        to={`/productos/editar/${props.producto._id}`}><FontAwesomeIcon icon={faEdit}></FontAwesomeIcon></Link>
         {/* <Button variant="info" className="mr-2">Editar</Button> */}
         <Button variant="danger" onClick={()=> eliminarProducto(props.producto._id)}><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></Button>
       </div>
